@@ -1,0 +1,61 @@
+﻿@using WebApplicationBD.Models
+@{
+    int count = 1;
+}
+@model IEnumerable<Team>
+
+<div class="col-lg-10 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-end mr-2 mb-3"><a class="btn btn-success" asp-action="Create">Create</a></div>
+            <h4 class="card-title">Table with contextual classes</h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Profession
+                            </th>
+                            <th>
+                                Setting
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="table-info">
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td class="py-1">
+                                    <img src="~/assets/img/team/@item.Image" alt="image" />
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Profession.Name
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete-variant"></i></a>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

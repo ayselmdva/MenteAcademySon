@@ -1,0 +1,22 @@
+﻿@using WebApplicationBD.Models
+@model Profession
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Profession
+            </p>
+            <form class="forms-sample" asp-action="Create" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" id="exampleInputUsername1" placeholder="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light"><a asp-action="Index">Cancel</a></button>
+            </form>
+        </div>
+    </div>
+</div>
